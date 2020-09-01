@@ -4,6 +4,7 @@ Terms explain:
 
 Use git.bash terminal for Windows:
 
+############## Local ############################3
 Step 1: Create a local git repository
 
 #Check current working directory:
@@ -43,11 +44,18 @@ $git add .
 #Remove file from staging environment:
 $git rm --cached <filename>
 
+
+# Configuration:
+$git config --global user.name 'Yourusername'
+$git config --global user.email 'Youremail'
+
+
+
 Step 4: Create a commit - commit changes in index
 $git commit
 Initial commit
 type ":wq" and Enter
-sssss
+
 $git commit -m "This is my first commit!"
 
 
@@ -80,6 +88,16 @@ $ git pull
 $git clone
 
 
-# Configuration:
-$git config --global user.name 'Yourusername'
-$git config --global user.email 'Youremail'
+##################### Github############################
+
+#See list of remote repository:
+$ git remote
+
+# add new remote repository:
+git remote add origin git@github.com:SangHuynh24/test.git
+
+#If the permission is denied, follow the below link to solve it:
+https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+passphrase key: 241092
+
