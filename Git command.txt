@@ -36,11 +36,18 @@ $git status
 
 # Add a new file to the staging environment:
 $git add <filename>
+$git add *.html
+$git add .
+
 
 #Remove file from staging environment:
 $git rm --cached <filename>
-Step 4: Create a commit - commit changes in index
 
+Step 4: Create a commit - commit changes in index
+$git commit
+Initial commit
+type ":wq" and Enter
+sssss
 $git commit -m "This is my first commit!"
 
 
