@@ -49,14 +49,34 @@ $git rm --cached <filename>
 To start using Git from your computer, you’ll need to enter your credentials (user name and email) to identify you as the author of your work. 
 The user name and email should match the ones you’re using on GitLab.
 
+$git config --local user.name 'Yourusername'
+$git config --local user.email 'Youremail'
+
+By default, git config will write to a local level if no configuration option is passed. 
+Local level configuration is applied to the context repository git config gets invoked in. 
+Local configuration values are stored in a file that can be found in the repo's .git directory: .git/config
+
+or
+
 $git config --global user.name 'Yourusername'
 $git config --global user.email 'Youremail'
 
+Global level configuration is user-specific, meaning it is applied to an operating system user. 
+Global configuration values are stored in a file that is located in a user's home directory. ~ /.gitconfig on unix systems and C:\Users\<username>\.gitconfig on windows
+
+
 To check the configuration, run:
-$git config --global --list
+$git config --global --list => only show username/useremail 
+
+or: 
+$git config --list => show list of all settings (username/useremail)
 
 The --global option tells Git to always use this information for anything you do on your system. If you omit --global or use --local
 , the configuration will be applied only to the current repository.
+
+
+
+
 
 Step 4: Create a commit - commit changes in index
 $git commit
@@ -71,11 +91,17 @@ Step 5: Create a new branch
 Say you want to make a new feature but are worried about 
 making changes to the main project while developing the feature. This is where git branches come in. 
 
-# Create new branch
+# Create new branch in local (local branch name)
 $git checkout -b <my branch name>
 
-# To check the available branch in the git:
-$git branch
+# Push new branch (created above) to Remote:
+$git push <Remote_name> <localbranch_name>
+
+or
+$git push <Remote_name> <local_branchname>:<remote_branchname
+
+# To check the available branch in the remote git:
+$git branch -r
 
 
 Step 6: Create a new repository on Github
@@ -86,7 +112,7 @@ To create a new repo on GitHub, log in and go to the GitHub home page.
 You should see a green '+ New repository' button:
 
 # Push to remote repository
-$ git push
+$ git push -u <remote name>
 
 # Pull latest from remote repository
 $ git pull
@@ -164,3 +190,4 @@ $ ssh-add ~/.ssh/id_rsa
 # Testing that everything is set up correctly:
 ssh -T git@gitlab.com
 
+aaaaaaaaaaaaaaaaaaaaaaa
