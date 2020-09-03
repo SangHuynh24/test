@@ -45,11 +45,18 @@ $git add .
 $git rm --cached <filename>
 
 
-# Configuration:
+# Configuration - Configure Git:
+To start using Git from your computer, you’ll need to enter your credentials (user name and email) to identify you as the author of your work. 
+The user name and email should match the ones you’re using on GitLab.
+
 $git config --global user.name 'Yourusername'
 $git config --global user.email 'Youremail'
 
+To check the configuration, run:
+$git config --global --list
 
+The --global option tells Git to always use this information for anything you do on your system. If you omit --global or use --local
+, the configuration will be applied only to the current repository.
 
 Step 4: Create a commit - commit changes in index
 $git commit
@@ -100,4 +107,60 @@ git remote add origin git@github.com:SangHuynh24/test.git
 https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
 passphrase key: 241092
+
+# check SSH key whether exists or not:
+$ ssh -T git@github.com
+
+######## Update files to Github (remmber choose branch):
+Step1: add file in to staging environment
+$git add . (add all files)
+
+Step 2: commit these files
+$git commit -m 'Message'
+
+Step 3: push these files to github
+$git push 
+
+DONE!
+
+######## If you want to clone files from Github:
+Step1: copy clone link on github (for SSH)
+Step2:
+- open Gitbash at the folder where we want to save cloned files.
+- $git clone git@github.com:SangHuynh24/test.git
+
+DONE!
+
+######## Pull request (PR)
+
+#### Merge a PR:
+Go ahead and click the green 'Merge pull request' button. 
+This will merge your changes into the master branch.
+
+
+### Add new remote:
+$ git remote add github git@github.com:ppreyer/first_app.git
+
+### Update remote:
+$ git remote set-url origin git@github.com:ppreyer/first_app.git
+
+############## Gitlab ##########################
+##generating an SSH key pair:
+ssh-keygen -t rsa -b 2048 -C "email@example.com"
+
+# start the ssh-agent in the background
+$ eval $(ssh-agent -s)
+
+# Adding your SSH key to ssh-agent:
+$ ssh-add ~/.ssh/id_rsa
+
+#Copy RSA keys:
+ clip < ~/.ssh/id_rsa.pub
+
+#remember to add SSH keys to account on Gitlab by pasting:
+
+
+
+# Testing that everything is set up correctly:
+ssh -T git@gitlab.com
 
